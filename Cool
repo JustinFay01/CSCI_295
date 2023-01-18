@@ -1,0 +1,29 @@
+[33mcommit bc095f8c9aac69933ad9fd3486c99bc7119b4bc0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Justin Fay <justin.fay@hope.edu>
+Date:   Tue Jan 17 22:08:52 2023 -0500
+
+    You are given an array prices where prices[i] is the price of a given stock
+    on the ith day.
+    
+    You want to maximize your profit by choosing a single day to buy one stock
+    and choosing a different day in the future to sell that stock.
+    
+    Return the maximum profit you can achieve from this transaction. If you
+    cannot achieve any profit, return 0.
+    
+            // Time O(n)
+            // Space O(1)
+
+[33mcommit c17b2a30bb5f8828dca26ba36aaa896b3340361a[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Justin Fay <justin.fay@hope.edu>
+Date:   Mon Jan 16 22:51:19 2023 -0500
+
+    Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built with those letters.
+    
+    Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
+
+[33mcommit c21a9cd7a1fff4bc7cbe32f284bd74ac11826d2a[m
+Author: Justin Fay <justin.fay@hope.edu>
+Date:   Mon Jan 16 21:58:41 2023 -0500
+
+    Initial Project Setup
