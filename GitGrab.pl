@@ -22,13 +22,16 @@ my %git;
 
 foreach (@files){
     if(-d $_) { # if it is a directory and not a file
+        print("Checking..." . $_ . "\n");
         if(checkGit($_)){
-            $git{$_} = gitPull($_);
+            #$git{$_} = gitPull($_);
         }
     }
 }
 
-printGit(\%git);
+#printGit(\%git);
+
+# END OF PROGM
 
 # Final print format for all repositores that were pulled
 # uses hash passed as first param 
@@ -63,14 +66,21 @@ sub checkGit {  # (String path)
     my $newDir = $dir . "\\" . $_[0];
     opendir my $curr, $newDir or die "Cannot open to check for git! Error in: $!";
     my @files = readdir $curr;
-
+    my @remoteBranches;
+    print("Now in sub dir: " . $newDir . "\n");
     foreach (@files){
+        print("Now checking file/dir: " . $_ . "\n");
         if($_ eq ".git"){ # git folder found, now check for remote branch
             chdir $newDir;
-            my @remoteBranches = `git branch -r`;
-            chdir $dir;
-            return @remoteBranches == 1 ? 1 : 0;
+            @remoteBranches = `git branch -r`;
+            print("\n\n");
+        }
+        elsif(-d $_ && $_ ne ".vscode" && $_ ne "\." && $_ ne ".."){
+            print("Found another dir! going recursive! " . $_ . "\n");
+            checkGit($_);
         }
     }
-    return 0;
+    chdir $dir;
+    print("\n\n");
+    return @remoteBranches >= 1 ? 1 : 0; # if there is any remote pranch then execute pull
 }
